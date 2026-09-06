@@ -1,6 +1,6 @@
 //! UI-independent editor state. Every text mutation goes through Replica.
 const std = @import("std");
-const collab = @import("collab");
+const collab = @import("crdt_zig");
 
 pub const Editor = struct {
     replica: *collab.Replica,

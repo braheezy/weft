@@ -3,7 +3,7 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
-    const library = b.dependency("collab", .{ .target = target, .optimize = optimize });
+    const crdt_lib = b.dependency("crdt_zig", .{ .target = target, .optimize = optimize });
     const vaxis = b.lazyDependency("vaxis", .{ .target = target, .optimize = optimize }) orelse return;
     const exe = b.addExecutable(.{
         .name = "weft",
@@ -12,7 +12,7 @@ pub fn build(b: *std.Build) void {
             .target = target,
             .optimize = optimize,
             .imports = &.{
-                .{ .name = "collab", .module = library.module("collab") },
+                .{ .name = "crdt_zig", .module = crdt_lib.module("crdt_zig") },
                 .{ .name = "vaxis", .module = vaxis.module("vaxis") },
             },
         }),
@@ -27,7 +27,7 @@ pub fn build(b: *std.Build) void {
             .root_source_file = b.path("src/network.zig"),
             .target = target,
             .optimize = optimize,
-            .imports = &.{.{ .name = "collab", .module = library.module("collab") }},
+            .imports = &.{.{ .name = "crdt_zig", .module = crdt_lib.module("crdt_zig") }},
         }),
     });
     b.step("test", "Weft integration and session persistence").dependOn(&b.addRunArtifact(tests).step);

@@ -2,7 +2,7 @@
 //! Socket waits never hold the editor mutex. Cancel the worker before freeing
 //! the Session or notification context. Only the UI owns start/stop.
 const std = @import("std");
-const collab = @import("collab");
+const collab = @import("crdt_zig");
 const model = @import("editor.zig");
 const Io = std.Io;
 
