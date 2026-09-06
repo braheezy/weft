@@ -1,0 +1,14 @@
+.{
+    .name = .crdt_client,
+    .fingerprint = 0xda83671a0dfa0195,
+    .version = "0.0.1",
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .collab = .{ .path = "../crdt.zig" },
+        .vaxis = .{
+            .url = "git+https://github.com/rockorager/libvaxis.git#18bfc93d055c2a351978ab9470b8f8cc9aab0b92",
+            .hash = "vaxis-0.6.0-BWNV_LbDCwCd5p5hUe6qnaFqM7Obi2qvRT5CL3ScKAI-",
+        },
+    },
+    .paths = .{""},
+}
