@@ -241,9 +241,9 @@ fn validateHello(ours: []const u8, peer: []const u8) !void {
 test "TCP peers converge across multiple batches disconnect edits and restart" {
     const allocator = std.testing.allocator;
     const io = std.testing.io;
-    var a = try model.Session.init(allocator, [_]u8{1} ** 16, "tcp-test");
+    var a = try model.Session.init(allocator, @splat(1), "tcp-test");
     defer a.deinit();
-    var b = try model.Session.init(allocator, [_]u8{2} ** 16, "tcp-test");
+    var b = try model.Session.init(allocator, @splat(2), "tcp-test");
     defer b.deinit();
     for (0..270) |_| try a.current().insert("a");
     try b.current().insert("B");
@@ -345,7 +345,7 @@ test "hello refuses different documents duplicate actors and ordering" {
 
 test "a stalled handshake times out and leaves the listener reusable" {
     const io = std.testing.io;
-    var session = try model.Session.init(std.testing.allocator, [_]u8{3} ** 16, "timeout-test");
+    var session = try model.Session.init(std.testing.allocator, @splat(3), "timeout-test");
     defer session.deinit();
     var host = Network{
         .io = io,

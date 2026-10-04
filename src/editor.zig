@@ -150,7 +150,7 @@ pub fn rebaseCursor(before: []const u8, after: []const u8, cursor: usize) usize 
 }
 
 test "Unicode editing and line navigation use scalar boundaries" {
-    var session = try Session.init(std.testing.allocator, [_]u8{1} ** 16, "test");
+    var session = try Session.init(std.testing.allocator, @splat(1), "test");
     defer session.deinit();
     const editor = session.current();
     try editor.insert("café\n中🙂");
@@ -165,7 +165,7 @@ test "Unicode editing and line navigation use scalar boundaries" {
 }
 
 test "session retains document actor and history across restart" {
-    var session = try Session.init(std.testing.allocator, [_]u8{1} ** 16, "test");
+    var session = try Session.init(std.testing.allocator, @splat(1), "test");
     defer session.deinit();
     try session.current().insert("hello");
     session.current().cursor = 2;

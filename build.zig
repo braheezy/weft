@@ -20,7 +20,7 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(exe);
     const run = b.addRunArtifact(exe);
     run.stdio = .inherit;
-    if (b.args) |args| run.addArgs(args);
+    run.addPassthruArgs();
     b.step("run", "Run weft").dependOn(&run.step);
     const tests = b.addTest(.{
         .root_module = b.createModule(.{

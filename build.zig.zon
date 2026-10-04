@@ -2,15 +2,15 @@
     .name = .crdt_client,
     .fingerprint = 0xda83671a0dfa0195,
     .version = "0.0.1",
-    .minimum_zig_version = "0.16.0",
+    .minimum_zig_version = "0.17.0",
     .dependencies = .{
         .vaxis = .{
-            .url = "git+https://github.com/rockorager/libvaxis.git#18bfc93d055c2a351978ab9470b8f8cc9aab0b92",
-            .hash = "vaxis-0.6.0-BWNV_LbDCwCd5p5hUe6qnaFqM7Obi2qvRT5CL3ScKAI-",
+            .url = "git+https://github.com/rockorager/libvaxis.git?ref=zig-0.17#6fd944a27fb3d6f596e981076381a3131f2448b4",
+            .hash = "vaxis-0.6.0-BWNV_MafDAAEzkVUvrW9NFUqnnMUoeHqrs2mecnD6D7w",
         },
         .crdt_zig = .{
-            .url = "git+https://github.com/braheezy/crdt.zig#fc4f08a0f92f3b220e0dbb9ba39514b8c9f71987",
-            .hash = "crdt_zig-0.0.1-TFOqLAssHwAtSkezTjZJ-PDD85Ws5tWFOuBm4v7SWrtX",
+            .url = "git+https://github.com/braheezy/crdt.zig#f96fb1a0993d90e8ad83c8b1ba4a6855cff21b49",
+            .hash = "crdt_zig-0.1.0-TFOqLAMfBQBYeBpCzQnLVo3q11FgaGUAwebuoLdmk5DV",
         },
     },
     .paths = .{""},
